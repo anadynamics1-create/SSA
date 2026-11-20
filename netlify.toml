@@ -1,0 +1,18 @@
+# Caching: images/fonts for 30 days, CSS/JS for 1 day (rename files or bump ?v= when you change them)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

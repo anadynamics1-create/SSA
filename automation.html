@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Automation & Robotics | ANADynamics</title>
+  <meta name="description" content="PLC programming, DCS, HMI/SCADA graphics, control panel design, IIoT connectivity and robotic automation for process and power industries.">
+  <meta name="theme-color" content="#07070a">
+  <link rel="canonical" href="https://www.anadynamics.com/automation.html"><!-- TODO: replace domain -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ANADynamics">
+  <meta property="og:title" content="Automation & Robotics | ANADynamics">
+  <meta property="og:description" content="PLC programming, DCS, HMI/SCADA graphics, control panel design, IIoT connectivity and robotic automation for process and power industries.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+  <div class="blueprint" aria-hidden="true"></div>
+  <!-- ================= ICON SPRITE ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-logic" viewBox="0 0 24 24"><path d="M3 5v14M21 5v14M3 9h4M10 9h4M17 9h4M3 15h6M15 15h6M7 7v4M10 7v4M14 7l3 4M14 11l3-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="15" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-hmi" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 13l3-3 3 2 4-5 4 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 8h16M4 15h16M7 4.5v2M9.5 4.5v2M12 4.5v2M7 10.5v2.5M10 10.5v2.5M13 10.5v2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="18.5" r="1" fill="currentColor"/><circle cx="11" cy="18.5" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 21V10l6 4V10l6 4V6l2-3h2l2 3v15H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 17h2M11 17h2M16 17h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="17" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="17" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5M5 17v-5h14v5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9.5" y="9.5" width="5" height="5" fill="currentColor"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M7 3v5M17 3v5M5 8h14v3a7 7 0 0 1-14 0V8zM12 18v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 11.1 3.5 3.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5 2.5-2.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="M3 5h10M8 3v2M5 5c1 4 4 7 7 8M11 5c-1 4-4 7-7 8M13 21l4-9 4 9M14.5 18h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 6.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8.5 8.5 0 1 1 8 19l-4 1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></symbol>
+  
+    <symbol id="gear" viewBox="0 0 100 100"><path fill-rule="evenodd" d="M88.0 50.0 L95.9 52.9 L95.1 59.1 L86.7 59.8 L82.9 69.0 L88.3 75.5 L84.5 80.4 L76.9 76.9 L69.0 82.9 L70.5 91.2 L64.7 93.6 L59.8 86.7 L50.0 88.0 L47.1 95.9 L40.9 95.1 L40.2 86.7 L31.0 82.9 L24.5 88.3 L19.6 84.5 L23.1 76.9 L17.1 69.0 L8.8 70.5 L6.4 64.7 L13.3 59.8 L12.0 50.0 L4.1 47.1 L4.9 40.9 L13.3 40.2 L17.1 31.0 L11.7 24.5 L15.5 19.6 L23.1 23.1 L31.0 17.1 L29.5 8.8 L35.3 6.4 L40.2 13.3 L50.0 12.0 L52.9 4.1 L59.1 4.9 L59.8 13.3 L69.0 17.1 L75.5 11.7 L80.4 15.5 L76.9 23.1 L82.9 31.0 L91.2 29.5 L93.6 35.3 L86.7 40.2 Z M63 50 a13 13 0 1 0 -26 0 a13 13 0 1 0 26 0 Z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24"><path d="M4 21h8M8 21v-3l-2-5 6-6 5 3M12 7l1-3M17 10l3 1-1 3-3-1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="1.6" fill="currentColor"/><circle cx="6" cy="13" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="art-dcs" viewBox="0 0 320 180">
+      <rect x="120" y="14" width="80" height="34" rx="4" class="a-box"/><text x="160" y="36" class="a-txt">OPERATOR HMI</text>
+      <path d="M160 48v18M40 66h240" class="a-line"/>
+      <path d="M60 66v18M160 66v18M260 66v18" class="a-line"/>
+      <rect x="22" y="84" width="76" height="30" rx="4" class="a-box"/><text x="60" y="103" class="a-txt">ENG. SERVER</text>
+      <rect x="122" y="84" width="76" height="30" rx="4" class="a-box a-hl"/><text x="160" y="103" class="a-txt">CONTROLLER</text>
+      <rect x="222" y="84" width="76" height="30" rx="4" class="a-box"/><text x="260" y="103" class="a-txt">HISTORY</text>
+      <path d="M160 114v18M100 132h120M100 132v14M140 132v14M180 132v14M220 132v14" class="a-line"/>
+      <rect x="88" y="146" width="24" height="20" class="a-io"/><rect x="128" y="146" width="24" height="20" class="a-io"/><rect x="168" y="146" width="24" height="20" class="a-io"/><rect x="208" y="146" width="24" height="20" class="a-io"/>
+      <circle cx="160" cy="66" r="3.5" class="a-dot"/>
+    </symbol>
+    <symbol id="art-plc" viewBox="0 0 320 180">
+      <rect x="40" y="40" width="240" height="100" rx="6" class="a-box"/>
+      <rect x="52" y="52" width="44" height="76" rx="3" class="a-box a-hl"/><text x="74" y="94" class="a-txt">CPU</text>
+      <g class="a-mods"><rect x="104" y="52" width="26" height="76" rx="2"/><rect x="136" y="52" width="26" height="76" rx="2"/><rect x="168" y="52" width="26" height="76" rx="2"/><rect x="200" y="52" width="26" height="76" rx="2"/><rect x="232" y="52" width="36" height="76" rx="2"/></g>
+      <g class="a-leds"><circle cx="117" cy="62" r="2.4"/><circle cx="149" cy="62" r="2.4"/><circle cx="181" cy="62" r="2.4"/><circle cx="213" cy="62" r="2.4"/></g>
+      <path d="M117 140v20M149 140v26M181 140v20M213 140v26" class="a-line"/>
+      <path d="M20 24h60M240 24h60" class="a-line a-dash"/>
+    </symbol>
+    <symbol id="art-iiot" viewBox="0 0 320 180">
+      <path d="M128 50h64a18 18 0 0 0 0-36 26 26 0 0 0-50-4 20 20 0 0 0-14 40z" class="a-box a-hl"/><text x="160" y="38" class="a-txt">CLOUD</text>
+      <path d="M160 50v30" class="a-line a-dash"/>
+      <rect x="116" y="80" width="88" height="32" rx="4" class="a-box"/><text x="160" y="100" class="a-txt">EDGE · LMS</text>
+      <path d="M160 112v14M60 126h200M60 126v14M160 126v14M260 126v14" class="a-line"/>
+      <rect x="28" y="140" width="64" height="26" rx="4" class="a-box"/><text x="60" y="157" class="a-txt">OPC UA</text>
+      <rect x="128" y="140" width="64" height="26" rx="4" class="a-box"/><text x="160" y="157" class="a-txt">MODBUS</text>
+      <rect x="228" y="140" width="64" height="26" rx="4" class="a-box"/><text x="260" y="157" class="a-txt">PUBSUB</text>
+      <circle cx="160" cy="65" r="3.5" class="a-dot"/>
+    </symbol>
+    <symbol id="art-panel" viewBox="0 0 320 180">
+      <rect x="70" y="14" width="180" height="152" rx="6" class="a-box"/>
+      <path d="M84 40h152M84 92h152M84 140h152" class="a-line a-dash"/>
+      <g class="a-mods"><rect x="90" y="26" width="16" height="28"/><rect x="110" y="26" width="16" height="28"/><rect x="130" y="26" width="16" height="28"/><rect x="150" y="26" width="16" height="28"/></g>
+      <rect x="180" y="24" width="50" height="32" rx="3" class="a-box a-hl"/>
+      <g class="a-mods"><rect x="90" y="74" width="30" height="36"/><rect x="126" y="74" width="30" height="36"/><rect x="162" y="74" width="30" height="36"/><rect x="198" y="74" width="30" height="36"/></g>
+      <g class="a-leds"><circle cx="105" cy="128" r="4"/><circle cx="125" cy="128" r="4"/><circle cx="145" cy="128" r="4"/></g>
+      <path d="M180 128h48M180 152h48" class="a-line"/>
+    </symbol>
+    <symbol id="art-process" viewBox="0 0 320 180">
+      <rect x="30" y="50" width="56" height="90" rx="6" class="a-box"/><rect x="132" y="50" width="56" height="90" rx="6" class="a-box"/><rect x="234" y="50" width="56" height="90" rx="6" class="a-box"/>
+      <rect x="32" y="96" width="52" height="42" rx="4" class="a-fill"/><rect x="134" y="80" width="52" height="58" rx="4" class="a-fill"/><rect x="236" y="110" width="52" height="28" rx="4" class="a-fill"/>
+      <path d="M86 70h46M188 70h46" class="a-line"/>
+      <circle cx="109" cy="70" r="7" class="a-box a-hl"/><circle cx="211" cy="70" r="7" class="a-box a-hl"/>
+      <text x="58" y="40" class="a-txt">TT</text><text x="160" y="40" class="a-txt">LT</text><text x="262" y="40" class="a-txt">FT</text>
+      <path d="M20 160h280" class="a-line a-dash"/>
+    </symbol>
+    <symbol id="art-conveyor" viewBox="0 0 320 180">
+      <rect x="20" y="118" width="280" height="14" rx="7" class="a-box"/>
+      <circle cx="34" cy="125" r="5" class="a-dot"/><circle cx="286" cy="125" r="5" class="a-dot"/>
+      <rect x="60" y="94" width="24" height="24" class="a-box a-hl"/><rect x="130" y="94" width="24" height="24" class="a-box"/><rect x="200" y="94" width="24" height="24" class="a-box a-hl"/>
+      <path d="M250 118V70l-30-20 -20 14" class="a-line"/><circle cx="250" cy="70" r="5" class="a-dot"/><circle cx="220" cy="50" r="4" class="a-dot"/>
+      <path d="M110 40v40M100 80h20" class="a-line"/><path d="M110 80l-6 10M110 80l6 10" class="a-line a-dash"/>
+      <text x="110" y="32" class="a-txt">SENSOR</text>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19c3-4 6-6 10-8"/></g></symbol>
+    <symbol id="i-fuel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M6 8h6"/><path d="M14 10h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V9l-3-3"/></g></symbol>
+    <symbol id="i-rupee" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h11M7 9h11M7 4c6 0 7 2.5 7 5s-2 5-7 5h-1l8 7"/></g></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18M4 18h16"/></g></symbol>
+    <symbol id="i-land" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l5-9 4 6 3-4 6 7H3z"/><circle cx="17" cy="6" r="2"/></g></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></g></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3M7.5 15h9"/></g></symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.5a2 2 0 0 1-1.7-3l2.2-3.8M9 7l1.3-2.2a2 2 0 0 1 3.4 0L16 8.6M17 19h2.5a2 2 0 0 0 1.7-3l-1.3-2.2"/><path d="M14 16l-3 3 3 3M5.5 9.5l.5 4-4-.5M18 5.5l-1.5 3.6-3.6-1.6"/></g></symbol>
+    <symbol id="i-cow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7c-2 0-3-1.5-3-3M18 7c2 0 3-1.5 3-3M6 7h12l-1 6H7L6 7zM8 13l-1 8M16 13l1 8M9 17h6"/><circle cx="9.5" cy="10" r=".6"/><circle cx="14.5" cy="10" r=".6"/></g></symbol>
+    <symbol id="i-wheat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M12 8c-2-1-3-3-3-5 2 0 3 2 3 5zM12 8c2-1 3-3 3-5-2 0-3 2-3 5zM12 13c-2-1-3.5-2.5-4-4.5 2 .3 3.5 2 4 4.5zM12 13c2-1 3.5-2.5 4-4.5-2 .3-3.5 2-4 4.5zM12 18c-2-1-3.5-2.5-4-4.5 2 .3 3.5 2 4 4.5zM12 18c2-1 3.5-2.5 4-4.5-2 .3-3.5 2-4 4.5z"/></g></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-1.5-1.5-5-1.5-6.5 1.5S5 16 7.5 19s3.5 1.5 4.5 1 2 1.5 4.5-1 3-8.5 1.5-10.5S13.5 5.5 12 7z"/><path d="M12 7c0-2 1-3.5 3-4"/></g></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 14a3 3 0 0 0 3 3"/></g></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4 0 7-2.7 7-6.5 0-4-3-6-4-9.5-2 1.5-3 3.5-3 5.5-1-1-1.5-2-1.5-3.5C7.5 9.5 5 12 5 14.5 5 18.3 8 21 12 21z"/></g></symbol>
+    <symbol id="i-cyl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="10" height="15" rx="4"/><path d="M10 3h4M12 3v3M7 11h10"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M20 20c0 1-1 2-4 2h-2"/></g></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></g></symbol>
+    <symbol id="i-team" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5"/></g></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></g></symbol>
+    <symbol id="i-plant" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21v-8a3 3 0 0 1 6 0v8M13 21V9a4 4 0 0 1 8 0v12M8 7V3M17 5V2"/></g></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16v-4l2-5h14l2 5v4H3zM5 12h14"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></g></symbol>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="ANADynamics home">
+        <img src="assets/images/logo-mark-sm.png" alt="" width="87" height="96" class="brand-mark">
+        <span class="brand-text">ANA<em>Dynamics</em></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="automation.html" class="nav-link active" aria-current="page">Automation</a></li>
+        <li class="has-sub"><button type="button" class="nav-link sub-toggle" aria-expanded="false" aria-haspopup="true">Bio-CNG</button>
+          <ul class="sub"><li><a href="bio-cng.html"><strong>Business Opportunity</strong><span>Why invest, land, returns</span></a></li><li><a href="how-it-works.html"><strong>How It Works</strong><span>Process &amp; 3D plant tour</span></a></li><li><a href="feedstock.html"><strong>Feedstock &amp; Estimator</strong><span>Calculate your plant output</span></a></li><li><a href="subsidies.html"><strong>Government Support</strong><span>Schemes, approvals &amp; documents</span></a></li></ul></li>
+        <li><a href="cng.html" class="nav-link">CNG Guide</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="btn btn-gold btn-sm nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero plain" aria-labelledby="ph-title">
+      
+      <div class="container">
+        <nav aria-label="Breadcrumb"><ol class="crumbs reveal"><li><a href="index.html">Home</a></li><li aria-current="page">Automation &amp; Robotics</li></ol></nav>
+        <p class="kicker reveal" style="margin-top:1.4rem">Division 01 · Automation &amp; Robotics</p>
+        <h1 id="ph-title" class="reveal">Industrial automation, <em class="gold-text">engineered as one system.</em></h1>
+        <p class="lead-p reveal">PLC logic, HMI/SCADA graphics, control panels, IIoT connectivity and robotic automation for process and power industries, including the automation that runs Bio-CNG plants.</p>
+        <div class="hero-chips reveal"><span class="badge badge-gold">Ladder &amp; FBD</span><span class="badge badge-gold">HMI / SCADA</span><span class="badge badge-gold">Modbus · Profibus · OPC UA</span><span class="badge badge-gold">Robotics</span></div>
+        <div class="hero-actions reveal"><a href="contact.html?enquiry=automation" class="btn btn-gold"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span>Book a Free Consultation</span></a><a href="#cell" class="btn btn-glass"><span>Watch the live robot cell</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section><!-- ================= SERVICES ================= -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="head center reveal">
+          <p class="kicker">Services</p>
+          <h2 id="services-title">What we <em class="gold-text">engineer.</em></h2>
+          <p class="sub">Four disciplines covering the complete automation stack.</p>
+        </header>
+        <div class="services">
+          <article class="card service glass reveal" data-tilt>
+            <span class="num">01</span>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-logic"/></svg></div>
+            <h3>Automation Logic Engineering</h3>
+            <ul class="ticks"><li>Custom ladder logic and function block programming</li><li>Protocol integration: Modbus, Profibus, OPC UA</li></ul>
+            <button class="more" type="button" data-modal>Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <template><p>Control logic that is structured, readable and built around how your process actually runs.</p><h4>Scope</h4><ul class="ticks"><li>Custom ladder logic (LAD) programming</li><li>Function block (FBD) programming</li><li>Integration over Modbus, Profibus and OPC UA</li></ul><h4>Outcome</h4><p>Reliable, maintainable control logic that communicates cleanly with the rest of your system.</p></template>
+          </article>
+          <article class="card service glass reveal" data-tilt>
+            <span class="num">02</span>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-hmi"/></svg></div>
+            <h3>HMI/SCADA Graphics Solutions</h3>
+            <ul class="ticks"><li>Process visualization</li><li>Alarm and trend analysis</li><li>Dashboard interfaces</li></ul>
+            <button class="more" type="button" data-modal>Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <template><p>Operator screens that make the process clear at a glance and help teams act fast.</p><h4>Scope</h4><ul class="ticks"><li>Process visualization and graphics design</li><li>Alarm and trend analysis</li><li>Dashboard interfaces</li></ul><h4>Outcome</h4><p>Clear, consistent HMI/SCADA graphics that support better operational decisions.</p></template>
+          </article>
+          <article class="card service glass reveal" data-tilt>
+            <span class="num">03</span>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-panel"/></svg></div>
+            <h3>Hardware Design &amp; Compatibility</h3>
+            <ul class="ticks"><li>Panel design and wiring</li><li>I/O mapping and sensor integration</li><li>Pneumatics and instrumentation</li></ul>
+            <button class="more" type="button" data-modal>Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <template><p>Hardware designed to match the logic, so field devices, panels and controllers work together from day one.</p><h4>Scope</h4><ul class="ticks"><li>Control panel design and wiring</li><li>I/O mapping and sensor integration</li><li>Pneumatics and instrumentation</li></ul><h4>Outcome</h4><p>Hardware-compatible systems that are easier to commission and maintain.</p></template>
+          </article>
+          <article class="card service glass reveal" data-tilt>
+            <span class="num">04</span>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-factory"/></svg></div>
+            <h3>Industry-Specific Solutions</h3>
+            <ul class="ticks"><li>Process industries: food, pharma, oil and gas</li><li>Power industries: substation automation, control rooms</li></ul>
+            <button class="more" type="button" data-modal>Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <template><p>Solutions shaped around the requirements of each sector.</p><h4>Process industries</h4><ul class="ticks"><li>Food</li><li>Pharma</li><li>Oil and gas</li></ul><h4>Power industries</h4><ul class="ticks"><li>Substation automation</li><li>Control rooms</li></ul></template>
+          </article>
+        </div>
+
+        <!-- Industries -->
+        <div class="industries reveal" id="industries">
+          <div class="tabs glass" role="tablist" aria-label="Industries">
+            <button class="tab is-active" role="tab" id="tab-process" aria-selected="true" aria-controls="panel-process"><svg class="ic" aria-hidden="true"><use href="#i-factory"/></svg>Process</button>
+            <button class="tab" role="tab" id="tab-power" aria-selected="false" aria-controls="panel-power" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>Power</button>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-process" aria-labelledby="tab-process">
+            <div class="ind glass"><b>01</b><h3>Food</h3><p>Logic, visualization and hardware integration for food processing.</p></div>
+            <div class="ind glass"><b>02</b><h3>Pharma</h3><p>Structured control and clear operator interfaces for pharmaceutical processes.</p></div>
+            <div class="ind glass"><b>03</b><h3>Oil &amp; Gas</h3><p>Protocol integration, instrumentation and SCADA graphics.</p></div>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-power" aria-labelledby="tab-power" hidden>
+            <div class="ind glass"><b>01</b><h3>Substation Automation</h3><p>Logic engineering and communication integration for substations.</p></div>
+            <div class="ind glass"><b>02</b><h3>Control Rooms</h3><p>HMI/SCADA graphics, alarms, trends and dashboards.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIVE ROBOT CELL (real-time 3D) ================= -->
+    <section class="section" id="cell" aria-labelledby="cell-title">
+      <div class="container">
+        <header class="head center reveal">
+          <p class="kicker">Live Robot Cell</p>
+          <h2 id="cell-title">Automation you can <em class="gold-text">watch run.</em></h2>
+          <p class="sub">A real-time 3D simulation of a pick-and-place cell: conveyor, photo-eye sensor, robot with inverse kinematics, gripper and palletizing, with a live HMI read-out.</p>
+        </header>
+        <div class="cell-stage reveal" data-3d="cell">
+          <div class="load-3d" aria-live="polite"><div class="l3-pill"><span class="spin" aria-hidden="true"></span><span class="l3-text">Loading interactive 3D…</span><span class="l3-off">Live 3D robot cell</span><button type="button" class="btn btn-glass btn-sm l3-btn" hidden><span>Start 3D simulation</span></button></div></div>
+          <canvas id="cell-3d" role="img" aria-label="3D simulation of a robot picking cartons from a conveyor and stacking them on a pallet"></canvas>
+          <div class="hmi glass" aria-hidden="true">
+            <div class="hmi-head"><span><i class="led"></i>HMI · CELL 01</span><span class="hmi-mode">AUTO</span></div>
+            <p class="hmi-state" id="hmi-state">INIT</p>
+            <dl>
+              <dt class="j">J1 Base</dt><dd class="j" id="hmi-j1">0.0°</dd>
+              <dt class="j">J2 Shoulder</dt><dd class="j" id="hmi-j2">0.0°</dd>
+              <dt class="j">J3 Elbow</dt><dd class="j" id="hmi-j3">0.0°</dd>
+              <dt class="j">J4 Wrist</dt><dd class="j" id="hmi-j4">0.0°</dd>
+              <dt class="j">TCP mm</dt><dd class="j" id="hmi-tcp">0 / 0 / 0</dd>
+              <dt>Gripper</dt><dd id="hmi-grip">OPEN</dd>
+              <dt>Parts</dt><dd id="hmi-parts">0000</dd>
+            </dl>
+            <div class="hmi-bar"><span id="hmi-bar"></span></div>
+          </div>
+          <p class="drag-hint" aria-hidden="true">Drag to orbit</p>
+          <div class="cell-fallback"><p>The live 3D robot cell needs WebGL and an internet connection to load. Please open this page in an up-to-date browser.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS (P&ID-style flow) ================= -->
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="head center reveal">
+          <p class="kicker">How We Work</p>
+          <h2 id="process-title">From requirement to <em class="gold-text">running plant.</em></h2>
+          <p class="sub">A clear, four-stage engagement. <!-- TODO: edit to match your real process --></p>
+        </header>
+        <ol class="flow reveal">
+          <li class="node"><span class="tag">STEP-01</span><div class="tank glass"><svg aria-hidden="true"><use href="#i-target"/></svg></div><h3>Consult</h3><p>Free consultation to understand your process, equipment and goals.</p></li>
+          <li class="node"><span class="tag">STEP-02</span><div class="tank glass"><svg aria-hidden="true"><use href="#i-panel"/></svg></div><h3>Design</h3><p>Architecture, I/O mapping, panel layout and hardware selection.</p></li>
+          <li class="node"><span class="tag">STEP-03</span><div class="tank glass"><svg aria-hidden="true"><use href="#i-logic"/></svg></div><h3>Engineer</h3><p>Ladder and function block logic with matching HMI/SCADA graphics.</p></li>
+          <li class="node"><span class="tag">STEP-04</span><div class="tank glass"><svg aria-hidden="true"><use href="#i-robot"/></svg></div><h3>Integrate</h3><p>Testing, integration and handover of a system that is ready to run.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= EXPERTISE (6 categories) ================= -->
+    <section class="section" id="expertise" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="head center reveal">
+          <p class="kicker">Expertise</p>
+          <h2 id="exp-title">Six disciplines. <em class="gold-text">One integrated skill set.</em></h2>
+          <p class="sub">Platforms and technologies we work with.</p>
+        </header>
+        <div class="skills">
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-network"/></svg></div>
+            <h3>DCS &amp; Process Automation</h3>
+            <ul class="pills"><li>Symphony Plus</li><li>Harmony INFI 90</li><li>ABB 800xA</li><li>SD Series</li><li>IET800 · HC800 · CP800</li><li>NTCL C-Net</li><li>Engineering, History &amp; Operation Servers</li></ul>
+          </article>
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-chip"/></svg></div>
+            <h3>PLC &amp; Control Systems</h3>
+            <ul class="pills"><li>Allen-Bradley CompactLogix / ControlLogix</li><li>Siemens</li><li>Mitsubishi</li><li>Delta</li><li>ABB AC500</li><li>RSLogix 500/5000</li><li>TIA Portal</li><li>GX Works 2</li><li>LAD · FBD · PID</li></ul>
+          </article>
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-hmi"/></svg></div>
+            <h3>SCADA &amp; HMI</h3>
+            <ul class="pills"><li>Siemens WinCC</li><li>FactoryTalk View</li><li>PanelView Plus</li><li>KTP 600</li><li>S+ Operations</li><li>Faceplates &amp; Symbols</li><li>Graphics &amp; Scripting</li></ul>
+          </article>
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-plug"/></svg></div>
+            <h3>Industrial Communication</h3>
+            <ul class="pills"><li>OPC UA</li><li>Modbus</li><li>PubSub</li><li>Ethernet</li><li>SCADA Data Gateway</li><li>FIM</li></ul>
+          </article>
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-cloud"/></svg></div>
+            <h3>IIoT &amp; Edge Integration</h3>
+            <ul class="pills"><li>Edge-to-Cloud Integration</li><li>OPC UA Client / Server</li><li>Modbus Connectivity</li><li>PubSub Messaging</li><li>IIoT Gateways</li><li>Secure Remote Access</li></ul>
+          </article>
+          <article class="card skill glass reveal" data-tilt>
+            <div class="icon-badge"><svg aria-hidden="true"><use href="#i-tool"/></svg></div>
+            <h3>Hardware &amp; Engineering</h3>
+            <ul class="pills"><li>AutoCAD Electrical</li><li>P&amp;ID</li><li>BOM</li><li>Panel Design &amp; Wiring</li><li>VSDs</li><li>Sensors &amp; Pneumatics</li><li>Testing &amp; Commissioning</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOLUTIONS ================= -->
+    <section class="section" id="solutions" aria-labelledby="sol-title">
+      <div class="container">
+        <header class="head center reveal">
+          <p class="kicker">Solutions</p>
+          <h2 id="sol-title">What we can <em class="gold-text">build for you.</em></h2>
+          <p class="sub">Solution areas ANADynamics delivers for process and power industries.</p>
+        </header>
+        <div class="filters reveal" role="group" aria-label="Filter solutions" data-filter-group="sol-grid">
+          <button class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" data-filter="control" aria-pressed="false">Control Systems</button>
+          <button class="filter" data-filter="hardware" aria-pressed="false">Hardware</button>
+          <button class="filter" data-filter="iiot" aria-pressed="false">IIoT</button>
+          <button class="filter" data-filter="robotics" aria-pressed="false">Robotics</button>
+        </div>
+        <div class="projects" id="sol-grid">
+          <article class="card project glass reveal" data-cat="control" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-dcs"/></svg><span>01</span></div>
+            <div class="p-body">
+              <p class="p-meta">Process &amp; power plants</p>
+              <h3>DCS Engineering &amp; Upgrades</h3>
+              <p>Configuration of engineering, history and operation servers, system migrations and HMI upgrades for distributed control systems.</p>
+              <ul class="pills sm"><li>DCS</li><li>Servers</li><li>HMI</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>Engineering server databases: tags, alarms, events, trends and user roles</li><li>History server setup, redundancy and reporting</li><li>Operation server graphics, faceplates and scripts</li><li>Version migrations and HMI upgrades</li></ul></template>
+          </article>
+          <article class="card project glass reveal" data-cat="control" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-plc"/></svg><span>02</span></div>
+            <div class="p-body">
+              <p class="p-meta">Machines &amp; process units</p>
+              <h3>PLC Programming</h3>
+              <p>Structured ladder and function block logic, from single machines to complete process units.</p>
+              <ul class="pills sm"><li>LAD</li><li>FBD</li><li>PID</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>Ladder (LAD) and function block (FBD) programming</li><li>PID control loops</li><li>Program download, testing and debugging</li><li>Allen-Bradley, Siemens, Mitsubishi and Delta platforms</li></ul></template>
+          </article>
+          <article class="card project glass reveal" data-cat="hardware" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-panel"/></svg><span>03</span></div>
+            <div class="p-body">
+              <p class="p-meta">Hardware</p>
+              <h3>Control Panel Design &amp; Wiring</h3>
+              <p>PLC and MCC panels designed, drawn and tested to match the control logic.</p>
+              <ul class="pills sm"><li>AutoCAD Electrical</li><li>I/O</li><li>BOM</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>I/O configuration and panel layout</li><li>Control and power wiring diagrams</li><li>Bill of materials</li><li>Cold and hot testing</li></ul></template>
+          </article>
+          <article class="card project glass reveal" data-cat="iiot" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-iiot"/></svg><span>04</span></div>
+            <div class="p-body">
+              <p class="p-meta">Industrial IoT</p>
+              <h3>IIoT &amp; Edge Connectivity</h3>
+              <p>Secure, multi-protocol data flows from field devices to edge and cloud.</p>
+              <ul class="pills sm"><li>OPC UA</li><li>Modbus</li><li>PubSub</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>OPC UA client/server setup and data modelling</li><li>Modbus integration for legacy and new devices</li><li>PubSub messaging</li><li>Edge-to-cloud data validation</li></ul></template>
+          </article>
+          <article class="card project glass reveal" data-cat="control" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-process"/></svg><span>05</span></div>
+            <div class="p-body">
+              <p class="p-meta">Process industries</p>
+              <h3>Process Control &amp; Visualization</h3>
+              <p>Temperature, level and flow control with clear operator screens, alarms and trends.</p>
+              <ul class="pills sm"><li>SCADA</li><li>Alarms</li><li>Trends</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>Control of temperature, level and flow</li><li>Process visualization and dashboards</li><li>Alarm and trend analysis</li><li>SCADA security configuration</li></ul></template>
+          </article>
+          <article class="card project glass reveal" data-cat="robotics" data-tilt>
+            <div class="p-art"><svg viewBox="0 0 320 180" aria-hidden="true"><use href="#art-conveyor"/></svg><span>06</span></div>
+            <div class="p-body">
+              <p class="p-meta">Robotics</p>
+              <h3>Conveyor &amp; Robotic Automation</h3>
+              <p>Sorting, material handling and robot-integrated production lines.</p>
+              <ul class="pills sm"><li>Conveyors</li><li>Sensors</li><li>Robotics</li></ul>
+              <button class="more" type="button" data-modal>View scope <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+            <template><h4>Typical scope</h4><ul class="ticks"><li>Colour and material sorting</li><li>Production lines integrated with robotics and CNC</li><li>Automated storage and warehouse logic</li><li>Sensor and pneumatics integration</li></ul></template>
+          </article>
+        </div>
+        <!-- Add real case studies here once client projects are completed (with client permission). -->
+      </div>
+    </section>
+
+    
+    <section class="section" aria-labelledby="bioauto-title" style="padding-top:2rem">
+      <div class="container split">
+        <figure class="photo reveal"><picture><source srcset="assets/images/biocng-plant.webp" type="image/webp"><img src="assets/images/biocng-plant.jpg" alt="Bio-CNG plant" width="1149" height="636" loading="lazy"></picture><figcaption>PLANT AUTOMATION</figcaption></figure>
+        <div>
+          <p class="kicker reveal">Automation for Bio-CNG</p>
+          <h2 id="bioauto-title" class="reveal">Where our two divisions <em class="gold-text">meet.</em></h2>
+          <div class="prose reveal" style="margin-top:1.2rem">
+            <p>A Bio-CNG plant is a process plant. Stable gas output depends on tight control of feeding, digester temperature, pH, gas pressure, upgrading and compression.</p>
+            <p>ANADynamics brings PLC/SCADA control, alarms, trends, remote monitoring and safety interlocks to Bio-CNG plants, so operators see the whole process on one screen.</p>
+          </div>
+          <p class="reveal" style="margin-top:1.6rem"><a href="how-it-works.html#automation" class="btn btn-glass"><span>See plant monitoring</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-card reveal">
+          <svg class="cta-gear g-1" aria-hidden="true"><use href="#gear"/></svg><svg class="cta-gear g-2" aria-hidden="true"><use href="#gear"/></svg><svg class="cta-gear g-3" aria-hidden="true"><use href="#gear"/></svg>
+          <h2>Ready to automate <em>smarter?</em></h2>
+          <p>Tell us about your machine, process or plant. The first consultation is free.</p>
+          <a href="contact.html?enquiry=automation" class="btn btn-dark"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span>Book a Free Consultation</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container f-inner">
+      <div class="f-brand">
+        <img src="assets/images/logo-full.png" alt="ANADynamics Automation and Robotics" width="240" height="189" loading="lazy" decoding="async">
+        <p>Automation &amp; robotics for industry, and complete support for Bio-CNG plants that turn organic waste into clean fuel.</p>
+        <p class="f-tag">Let's Automate. Let's Grow. Let's Build the Future.</p>
+      </div>
+      <nav aria-label="Company"><h3>Company</h3><ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="automation.html">Automation &amp; Robotics</a></li><li><a href="cng.html">CNG Guide</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+      </ul></nav>
+      <nav aria-label="Bio-CNG"><h3>Bio-CNG</h3><ul>
+        <li><a href="bio-cng.html">Business Opportunity</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="feedstock.html">Feedstock &amp; Estimator</a></li><li><a href="subsidies.html">Government Support</a></li>
+      </ul></nav>
+      <div><h3>Contact</h3>
+        <address>P-22, Vidyagiri<br>Bagalkot 587103<br>Karnataka, India</address>
+        <ul style="margin-top:.8rem">
+          <li><a href="tel:+917619360105">+91 76193 60105</a></li>
+          <li><a href="tel:+919591557311">+91 95915 57311</a></li>
+          <li><a href="mailto:anadynamics1@gmail.com">anadynamics1@gmail.com</a></li>
+        </ul>
+      </div>
+      <p class="f-note">* Subsidies and incentives are subject to government norms and eligibility. ANADynamics assists with documentation and the application process; approval rests with the respective authorities.</p>
+      <p class="copy">&copy; <span class="js-year">2026</span> ANADynamics · Automation and Robotics. All rights reserved. · A greener tomorrow starts today.</p>
+    </div>
+  </footer>
+  <a href="#top" class="to-top glass" aria-label="Back to top"><svg class="ic" aria-hidden="true" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg></a>
+
+  <dialog class="modal" id="modal" aria-labelledby="m-title">
+    <button class="m-close" type="button" aria-label="Close">&times;</button>
+    <p class="p-meta" id="m-meta"></p>
+    <h3 id="m-title"></h3>
+    <div class="m-body"></div>
+    <a href="contact.html?enquiry=automation" class="btn btn-gold m-cta"><span>Discuss this solution</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </dialog>
+  <script src="js/lazy3d.js" defer></script>
+  <script src="js/site.js" defer></script>
+</body>
+</html>

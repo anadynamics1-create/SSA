@@ -1,0 +1,211 @@
+/* ==========================================================
+   ANADynamics — responsive layer for every screen type
+   Phones (portrait & landscape, 280 px foldables and up), tablets,
+   laptops, short screens, large desktops, ultra-wide and 4K, plus
+   touch vs mouse, notches and print. Loaded last on every page.
+   ========================================================== */
+
+/* ---------- Base fixes ---------- */
+html{-webkit-tap-highlight-color:transparent;text-size-adjust:100%}
+body{font-size:1rem}                                 /* follow html font-size so large screens scale */
+img{height:auto}                                     /* never distort images when they shrink */
+h1,h2,h3,h4{overflow-wrap:break-word;hyphens:manual}
+p,li,dd,td{overflow-wrap:break-word}
+.modal:not([open]){display:none}                      /* older browsers without <dialog> */
+.modal{max-height:calc(100vh - 3rem);max-height:calc(100dvh - 3rem);overflow:auto;overscroll-behavior:contain}
+.btn{max-width:100%}
+.btn:active{transform:scale(.97)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
+
+/* Grid & flex children may shrink below their content width (prevents sideways scrolling) */
+.split>*,.grid-2>*,.grid-3>*,.grid-4>*,.contact-page>*,.calc>*,.brochure>*,.divisions>*,.about>*,.founder>*,
+.faq-wrap>*,.contact>*,.hero-inner>*,.plant-wrap>*,.services>*,.skills>*,.projects>*,.edu>*,.f-inner>*{min-width:0}
+.brochure img{max-width:min(340px,100%)}
+/* Decorative glows must never widen the page on phones */
+main,.footer{overflow-x:hidden;overflow-x:clip}
+@media (max-width:760px){.photo-frame::before{inset:-10px}}
+.tabs{max-width:100%;flex-wrap:wrap;justify-content:center}
+.hp{position:absolute!important;left:0!important;width:1px;height:1px;opacity:0;pointer-events:none;clip:rect(0 0 0 0);overflow:hidden}
+
+/* ---------- Notches, rounded corners & home indicator ---------- */
+.container{width:min(1220px,100% - 2.5rem - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}
+.to-top{right:calc(1.4rem + env(safe-area-inset-right,0px));bottom:calc(1.4rem + env(safe-area-inset-bottom,0px))}
+.footer{padding-bottom:calc(2.5rem + env(safe-area-inset-bottom,0px))}
+
+/* ---------- Touch devices: no sticky hover effects, bigger tap targets ---------- */
+@media (hover:none){
+  .card:hover,.stat:hover,.ind:hover,.values li:hover,.filter:hover,.pills li:hover,.tour button:hover,
+  .node:hover .tank,.btn:hover,.btn-gold:hover,.btn-glass:hover,.btn-eco:hover,.btn-dark:hover,.pl-play:hover{transform:none}
+  .card:hover::before,.card:hover::after{opacity:0}
+  .project:hover .p-art svg,.division:hover .d-bg,.photo-frame:hover img,.brochure img:hover{transform:none}
+  .btn::after{display:none}
+  .btn:active{transform:scale(.97)}
+}
+@media (pointer:coarse){
+  .hotspot{width:40px;height:40px;font-size:.76rem}
+  .plant-tools button{padding:.65rem 1rem;font-size:.7rem}
+  .filter{padding:.7rem 1.2rem}
+  .faq summary{padding:1.2rem 1.2rem;min-height:56px}
+  .footer ul a,.sub a{padding-block:.35rem;display:inline-block}
+  .nav-link{min-height:44px;display:flex;align-items:center}
+  .btn,.btn-sm,.more,.l3-btn,.tab,.filter{min-height:44px}
+  .more{display:inline-flex;align-items:center}
+  /* Inputs at 16px stop iOS from zooming into the form */
+  input,select,textarea,.num-in{font-size:16px!important}
+}
+
+/* ---------- Tablets & small laptops (up to 1100 px): hamburger menu ---------- */
+@media (max-width:1100px){
+  /* A blurred or transformed header would trap the full-screen menu inside it */
+  .site-header.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,9,8,.96)}
+  .nav-menu{height:100vh;height:100dvh;padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px));overscroll-behavior:contain}
+  .nav{padding-inline:env(safe-area-inset-left,0px) env(safe-area-inset-right,0px)}
+}
+
+/* ---------- Tablets portrait & phones (up to 960 px) ---------- */
+@media (max-width:960px){
+  .hero{padding-top:calc(var(--hh) + 44vh);padding-top:calc(var(--hh) + 44svh)}
+  .hero-fallback{top:calc(var(--hh) + 22vh);top:calc(var(--hh) + 22svh);width:min(230px,48vw)}
+  .section{padding:5rem 0}
+  .head{margin-bottom:2.8rem}
+  .table-wrap{-webkit-overflow-scrolling:touch}
+  body{background-attachment:scroll}                  /* fixed backgrounds are slow / ignored on mobile */
+}
+
+/* Large tablets in portrait (e.g. iPad Pro 1024×1366): stacked hero so the logo never covers the text */
+@media (min-width:961px) and (max-width:1200px) and (orientation:portrait){
+  .hero{align-items:flex-start;padding-top:calc(var(--hh) + 34vh);padding-top:calc(var(--hh) + 34svh)}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-copy{max-width:760px;margin-inline:auto}
+  .eyebrow,.hero-lead{margin-inline:auto}
+  .hero-actions,.stats{justify-content:center}
+  .hero-fallback{right:50%;top:calc(var(--hh) + 17vh);top:calc(var(--hh) + 17svh);translate:50% -50%;width:min(280px,30vw)}
+  .hero-3d,.hero-shade{height:calc(var(--hh) + 40vh);bottom:auto}
+  .hero-shade{background:linear-gradient(0deg,var(--bg) 0%,rgba(7,7,10,0) 38%)}
+}
+
+/* ---------- Phones (up to 640 px) ---------- */
+@media (max-width:640px){
+  body{font-size:.9375rem}
+  .container{width:calc(100% - 2rem - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}
+  .section{padding:4rem 0}
+  .btn{white-space:normal;text-align:center;line-height:1.3}
+  .hero-actions .btn,.page-hero .hero-actions .btn{width:100%}
+  .cta-card .btn{width:100%}
+  .page-hero h1{max-width:none}
+  .figure b{font-size:1.7rem}
+  .info-card,.scheme{padding:1.6rem}
+  .division h3{font-size:1.6rem}
+  .proc-n{font-size:2.6rem}
+  .modal{width:calc(100% - 1rem);padding:1.6rem 1.3rem;border-radius:20px}
+  .modal h3{font-size:1.5rem}
+
+  /* Tables become stacked cards: no sideways scrolling */
+  .tbl.stack{min-width:0}
+  .tbl.stack caption{padding:1rem 1rem 0}
+  .tbl.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tbl.stack tbody tr{display:block;padding:1rem 1.1rem;border-bottom:1px solid var(--glass-line)}
+  .tbl.stack tbody tr:last-child{border-bottom:0}
+  .tbl.stack tbody th{display:block;width:auto;padding:0 0 .5rem;border:0;font-family:var(--display);font-size:1.02rem;color:var(--text)}
+  .tbl.stack td{display:grid;grid-template-columns:minmax(90px,38%) 1fr;gap:.8rem;padding:.35rem 0;border:0}
+  .tbl.stack td::before{content:attr(data-label);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding-top:.2rem}
+  .tbl.stack td[data-label=""]{grid-template-columns:1fr}
+  .tbl.stack td[data-label=""]::before{display:none}
+}
+
+/* ---------- Small phones (up to 380 px) & foldables (up to 300 px) ---------- */
+@media (max-width:380px){
+  .tab{padding:.65rem 1rem;font-size:.85rem}
+  .brand-text{font-size:1.1rem}
+  .brand-mark{height:34px}
+  .eyebrow{letter-spacing:.08em;font-size:.66rem}
+  .hero h1{font-size:2.15rem}
+  .page-hero h1{font-size:2rem}
+  .section h2{font-size:1.85rem}
+  .stats{gap:.5rem}
+  .stat{padding:.7rem .6rem .7rem .9rem}
+  .stat dd{font-size:1.4rem}
+  .stat small{display:block;font-size:.68rem}
+  .feed-grid,.journey{grid-template-columns:1fr}
+  .calc-panel,.calc-out,.form{padding:1.3rem}
+  .out-big{font-size:2.4rem}
+  .tbl.stack td{grid-template-columns:1fr;gap:.1rem}
+  .plant-tools{left:.5rem;top:.5rem;gap:.35rem}
+  .hmi{font-size:.6rem}
+}
+@media (max-width:300px){
+  .brand-text{display:none}
+  .container{width:calc(100% - 1.4rem)}
+  .hero h1,.page-hero h1{font-size:1.8rem}
+  .nav-link{font-size:1.2rem}
+}
+
+/* ---------- Phones in landscape & other short screens ---------- */
+@media (max-width:960px) and (orientation:landscape) and (max-height:560px){
+  .hero{min-height:auto;padding-top:calc(var(--hh) + 2rem);padding-bottom:3rem;text-align:left}
+  .hero-copy{max-width:62%}
+  .hero-fallback{top:55%;right:5%;width:min(170px,24vw);translate:0 -50%}
+  .eyebrow,.hero-lead{margin-inline:0}
+  .hero-actions,.stats{justify-content:flex-start}
+  .hero-actions .btn{width:auto}
+  .hero h1{font-size:clamp(1.8rem,4.6vw,2.4rem);margin:1rem 0}
+  .page-hero{padding:calc(var(--hh) + 1.5rem) 0 2.5rem}
+  .plant-stage,.cell-stage{height:calc(100vh - var(--hh) - 1.5rem);height:calc(100svh - var(--hh) - 1.5rem);min-height:260px}
+  .nav-menu{justify-content:flex-start}
+  .nav-link{font-size:1.15rem;min-height:40px}
+  .plant-info{max-height:60%;overflow:auto}
+  .hmi .j{display:none}
+}
+/* Laptops with short screens (e.g. 1366×768, 1280×720): keep 3D areas inside the window */
+@media (min-width:961px) and (max-height:820px){
+  .plant-stage{height:clamp(420px,calc(100vh - 140px),720px);height:clamp(420px,calc(100svh - 140px),720px)}
+  .cell-stage{height:clamp(400px,calc(100vh - 140px),680px);height:clamp(400px,calc(100svh - 140px),680px)}
+  .hero{padding-top:calc(var(--hh) + 2rem);padding-bottom:4rem}
+  .hero h1{font-size:clamp(2.4rem,4.4vw,3.9rem)}
+}
+
+/* ---------- Large desktops, ultra-wide & 4K ---------- */
+@media (min-width:1600px){
+  html{font-size:17px}
+  .container{width:min(1400px,100% - 4rem)}
+  .plant-stage{height:clamp(560px,min(46vw,80vh),960px)}
+  .cell-stage{height:clamp(520px,min(44vw,78vh),900px)}
+  .hmi{width:300px}
+}
+@media (min-width:2200px){
+  html{font-size:19px}
+  .container{width:min(1640px,100% - 6rem)}
+}
+@media (min-width:3000px){
+  html{font-size:24px}
+  .container{width:min(2100px,100% - 8rem)}
+  .plant-stage{height:clamp(800px,min(44vw,80vh),1500px)}
+  .cell-stage{height:clamp(760px,min(42vw,78vh),1400px)}
+  .hmi{width:380px}
+}
+/* Ultra-wide but not very tall (21:9 monitors) */
+@media (min-aspect-ratio:21/9) and (min-width:1600px){
+  .hero{min-height:min(100vh,1100px)}
+  .plant-stage{height:clamp(520px,72vh,900px)}
+}
+
+/* ---------- Users who prefer less motion / more contrast ---------- */
+@media (prefers-contrast:more){
+  :root{--text-2:#ddd6cf;--text-3:#b3aca5;--glass-line:rgba(255,255,255,.28)}
+}
+@media (forced-colors:active){
+  .glass,.card,.btn{border:1px solid CanvasText}
+  .gold-text,.eco-text{color:LinkText;background:none}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  :root{--text:#000;--text-2:#222;--text-3:#444}
+  body{background:#fff!important;color:#000}
+  .site-header,.to-top,.blueprint,.conveyor,.cta,.plant-stage,.cell-stage,.hero-3d,.hero-shade,.scroll-cue,.live-tag,.filters,.plant-wrap .tour,.map,form,.loader{display:none!important}
+  .glass,.card{background:none!important;border:1px solid #ccc!important;box-shadow:none!important;backdrop-filter:none!important}
+  .gold-text,.eco-text{color:#000!important;background:none!important;-webkit-text-fill-color:#000}
+  .js .reveal,.anim{opacity:1!important;transform:none!important;animation:none!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em}
+  .section{padding:1.5rem 0}
+}
